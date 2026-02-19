@@ -1,0 +1,51 @@
+resource "aws_lambda_function" "lambda" {
+  function_name    = var.lambda_function_name
+  role             = aws_iam_role.lambda_role.arn
+  description      = var.description
+  filename         = data.archive_file.code.output_path
+  source_code_hash = data.archive_file.code.output_base64sha256
+  handler          = var.handler
+  runtime          = var.runtime
+  memory_size      = var.memory_size
+  tags             = local.tags
+  timeout          = var.timeout
+  logging_config {
+    log_format = "JSON"
+  }
+}
+
+resource "null_resource" "pip_install" {
+  triggers = {
+    always_run = timestamp()
+  }
+
+  provisioner "local-exec" {
+    command = "python3 -m pip install -r ${path.module}/../requirements.txt -t ${path.module}/../code"
+  }
+}
+
+data "archive_file" "code" {
+  type        = "zip"
+  source_dir  = "${path.module}/../code"
+  output_path = "${path.module}/../code.zip"
+  depends_on  = [null_resource.pip_install]
+}
+
+resource "aws_lambda_function_event_invoke_config" "lambda_retry_failure" {
+  function_name                = aws_lambda_function.lambda.function_name
+  maximum_event_age_in_seconds = 21600
+  maximum_retry_attempts       = 0
+  destination_config {
+    on_failure {
+      destination = module.sns.sns_topic_arn
+    }
+  }
+}
+
+resource "aws_lambda_permission" "bedrock_agent" {
+  statement_id  = "AllowExecutionFromBedrockAgent"
+  action        = "lambda:InvokeFunction"
+  function_name = aws_lambda_function.lambda.function_name
+  principal     = "bedrock-agentcore.amazonaws.com"
+  source_arn    = aws_iam_role.gateway_role.arn
+}

@@ -1,0 +1,13 @@
+source_code_repo_url = "https://service-delivery-apps.visualstudio.com/Security/_git/recorded-futures-mcp-gateway"
+environment          = "seclog"
+cost_centre          = "1010043"
+lambda_function_name = "bedrock-gateway-recordedFuture"
+sns_topic_name       = "bedrock-gateway-recordedFuture"
+runtime              = "python3.11"
+handler              = "main.lambda_handler"
+memory_size          = "512"
+timeout              = 900
+description          = "Recorded Futures MCP Bedrock Gateway Lambda function"
+gateway_name         = "mcp-recorded-futures"
+gateway_description  = "Recorded Futures MCP Bedrock Gateway integration with AWS Lambda to provide MCP services"
+authorization_type   = "AWS_IAM"
