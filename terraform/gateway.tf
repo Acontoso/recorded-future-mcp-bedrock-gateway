@@ -5,7 +5,13 @@ resource "aws_bedrockagentcore_gateway" "example" {
   authorizer_type = var.authorization_type
   protocol_type   = "MCP"
   region          = data.aws_region.current.name
-  tags            = local.tags
+  authorizer_configuration {
+    custom_jwt_authorizer {
+      discovery_url    = "https://login.microsoftonline.com/212e8b26-0a22-4ea9-b9e0-9c3dfb001559/v2.0/.well-known/openid-configuration"
+      allowed_audience = ["ae4e4ead-96e7-480e-90bb-d751732811eb"]
+    }
+  }
+  tags = local.tags
 }
 
 resource "aws_bedrockagentcore_gateway_target" "search_malware" {

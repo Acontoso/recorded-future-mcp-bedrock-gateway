@@ -20,7 +20,7 @@ resource "null_resource" "pip_install" {
   }
 
   provisioner "local-exec" {
-    command = "python3 -m pip install -r ${path.module}/../requirements.txt -t ${path.module}/../code"
+    command = "python3 -m pip install --upgrade --force-reinstall --platform manylinux2014_x86_64 --implementation cp --python-version 3.11 --only-binary=:all: -r ${path.module}/../requirements.txt -t ${path.module}/../code"
   }
 }
 
