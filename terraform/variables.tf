@@ -62,3 +62,13 @@ variable "authorization_type" {
   type        = string
   description = "Authorization type used to authenticate to the gateway"
 }
+
+variable "tenant_id" {
+  type        = string
+  description = "Microsoft Tenant ID used for authentication to the gateway"
+}
+
+variable "audience_values" {
+  type        = list(string)
+  description = "List of audience values used for authentication to the gateway"
+}

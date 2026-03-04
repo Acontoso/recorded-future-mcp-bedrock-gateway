@@ -10,4 +10,6 @@ timeout              = 900
 description          = "Recorded Futures MCP Bedrock Gateway Lambda function"
 gateway_name         = "mcp-recorded-futures"
 gateway_description  = "Recorded Futures MCP Bedrock Gateway integration with AWS Lambda to provide MCP services"
-authorization_type   = "AWS_IAM"
+authorization_type   = "CUSTOM_JWT"
+tenant_id            = "212e8b26-0a22-4ea9-b9e0-9c3dfb001559"
+audience_values      = ["ae4e4ead-96e7-480e-90bb-d751732811eb"]
