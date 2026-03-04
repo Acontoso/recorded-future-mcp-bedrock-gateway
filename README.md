@@ -134,7 +134,7 @@ This client application is what signs in users and requests the API resource fro
 - API Permissions: Grant delegated (or app) permissions to the resource servers scopes, and what scopes can be requested.
 - Redirect URI: Add the redirect URI on where the token will be recieved (In Agentic solutions, or for Security CoPilot the callback being `https://securitycopilot.microsoft.com/auth/v1/callback`)
 - Since this is a secure client, create a secret that is used for this integration (Some can use PKCE but most ask for secret)
-- Provide admin consent to the application permissions. (add email, openid & profile to the scopes)
+- Provide admin consent to the application permissions. (add email, openid & profile to the scopes) & offline_access for access token refresh can occur
 
 #### Bedrock Agentcore Authentication
 For Entra ID, add the discovery endpoint v2 `https://login.microsoftonline.com/<TENANT_ID>/v2.0/.well-known/openid-configuration"`, and define the allowed audiences `app reg id of resource server SP`, the scopes required and any custom claims defined in the token (can also include group memberships if the claim is configured to include).
