@@ -18,6 +18,8 @@ def lambda_handler(event, context):
     elif toolName == 'lookupIOC':
         logger.info(f"Tool selected is lookupIOC with event: {json.dumps(event)}")
         payload = IOCLookupPayload(**event)
+        # model_dump coversion of pydantic model to dict, exclude_defaults and exclude_unset to remove keys with default values or not set values
+        # Can call model_dump_json() if you want to return a JSON string instead of a dict
         return {"data": searchIOC(payload).model_dump()}
     elif toolName == 'searchSandbox':
         logger.info(f"Tool selected is searchSandbox with event: {json.dumps(event)}")
