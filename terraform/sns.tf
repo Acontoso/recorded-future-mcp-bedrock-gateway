@@ -7,9 +7,9 @@ module "sns" {
   encryption_enabled                     = false
 
   subscribers = {
-    aesopinternal = {
+    internal = {
       protocol               = "email"
-      endpoint               = "securityengineering@wesfarmershealth.com.au"
+      endpoint               = "skoro23@gmail.com"
       endpoint_auto_confirms = false
       raw_message_delivery   = false
     }

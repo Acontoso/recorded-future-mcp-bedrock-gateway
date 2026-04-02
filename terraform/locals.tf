@@ -6,7 +6,7 @@ locals {
       "bu"         = "security"
       "RepoUrl"    = "${var.source_code_repo_url}"
       "service"    = "bedrock-gateway-recordedFuture"
-      "owner"      = "patrick-robertson"
+      "owner"      = "alex skoro"
       "author"     = "alex skoro"
       "costcentre" = "${var.cost_centre}"
     }

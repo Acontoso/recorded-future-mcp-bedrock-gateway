@@ -1,0 +1,15 @@
+source_code_repo_url = "https://github.com/Acontoso/recorded-future-mcp-bedrock-gateway"
+environment          = "seclog"
+cost_centre          = "1010043"
+lambda_function_name = "bedrock-gateway-recordedFuture-dev"
+sns_topic_name       = "bedrock-gateway-recordedFuture-dev"
+runtime              = "python3.11"
+handler              = "main.lambda_handler"
+memory_size          = "512"
+timeout              = 900
+description          = "Recorded Futures MCP Bedrock Gateway Lambda function"
+gateway_name         = "mcp-recorded-futures-dev"
+gateway_description  = "Recorded Futures MCP Bedrock Gateway integration with AWS Lambda to provide MCP services"
+authorization_type   = "CUSTOM_JWT"
+tenant_id            = "212e8b26-0a55-4ea9-b955-9c3dfb001559"
+audience_values      = ["ae4e4ead-96e7-480e-90bb-d751732811eb"]
