@@ -7,7 +7,6 @@ name: Release
 
 permissions:
   contents: write
-  issues: write
 
 concurrency:
   group: release-${{ github.ref }}
