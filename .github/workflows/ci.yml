@@ -31,9 +31,8 @@ jobs:
             terraform:
               - 'terraform/**'
             code:
-              - '**/*.py'
+              - 'code/*.py'
               - 'requirements.txt'
-              - 'Dockerfile'
 
   unit-tests:
     name: Unit Tests
