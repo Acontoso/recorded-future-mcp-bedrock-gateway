@@ -133,7 +133,7 @@ class RecordedFutureClient:
 
 
 def _get_recorded_future_token() -> str:
-    return AWSServices.get_ssm_parameters(["recorded_future_api"], DEFAULT_REGION)[0]
+    return AWSServices.get_ssm_parameters(["apikey"], DEFAULT_REGION)[0]
 
 
 _client = RecordedFutureClient(token_provider=_get_recorded_future_token)

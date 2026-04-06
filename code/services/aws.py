@@ -23,7 +23,7 @@ class AWSServices:
                 try:
                     data = (
                         ssm_client.get_parameter(
-                            Name=f"/mcp-gateway/{param}", WithDecryption=True
+                            Name=f"/recorded-future-mcp-gateway/{param}", WithDecryption=True
                         )
                         .get("Parameter")
                         .get("Value")

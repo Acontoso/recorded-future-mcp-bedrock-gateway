@@ -8,7 +8,6 @@ locals {
       "service"    = "bedrock-gateway-recordedFuture"
       "owner"      = "alex skoro"
       "author"     = "alex skoro"
-      "costcentre" = "${var.cost_centre}"
     }
   )
   aws_region = "ap-southeast-2"

@@ -9,6 +9,7 @@ resource "aws_bedrockagentcore_gateway" "recorded_future_gateway" {
     custom_jwt_authorizer {
       discovery_url    = "https://login.microsoftonline.com/${var.tenant_id}/v2.0/.well-known/openid-configuration"
       allowed_audience = var.audience_values
+      allowed_scopes   = var.allowed_scopes
     }
   }
   tags = local.tags

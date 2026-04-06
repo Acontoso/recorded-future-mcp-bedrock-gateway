@@ -72,3 +72,18 @@ variable "audience_values" {
   type        = list(string)
   description = "List of audience values used for authentication to the gateway"
 }
+
+variable "kms_key_alias" {
+  type        = string
+  description = "KMS key alias used for encryption"
+}
+
+variable "enc_string_recordedfuture_api_key" {
+  type        = string
+  description = "Encrypted RecordedFutures API key for creating SSM parameter"
+}
+
+variable "allowed_scopes" {
+  type        = list(string)
+  description = "Allowed scopes for authorization to the Bedrock Agentcore gateway"
+}
