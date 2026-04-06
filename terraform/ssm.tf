@@ -2,7 +2,7 @@
 resource "aws_ssm_parameter" "api_key" {
   name        = "/recorded-future-mcp-gateway/opensourcekey"
   type        = "SecureString"
-  description = "Open Source API key for creating SSM parameter"
+  description = "Recorded Futures API key"
   key_id      = data.aws_kms_key.cmk_ssm_alias.id
   value       = var.enc_string_recordedfuture_api_key
   tags        = local.tags
