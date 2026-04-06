@@ -1,4 +1,4 @@
-resource "aws_bedrockagentcore_gateway" "example" {
+resource "aws_bedrockagentcore_gateway" "recorded_future_gateway" {
   name            = var.gateway_name
   description     = var.gateway_description
   role_arn        = aws_iam_role.gateway_role.arn
@@ -16,7 +16,7 @@ resource "aws_bedrockagentcore_gateway" "example" {
 
 resource "aws_bedrockagentcore_gateway_target" "search_malware" {
   name               = "searchMalware"
-  gateway_identifier = aws_bedrockagentcore_gateway.example.gateway_id
+  gateway_identifier = aws_bedrockagentcore_gateway.recorded_future_gateway.gateway_id
   description        = "Query malware intelligence for one or more SHA256 file hashes. This function calls Recorded Future's malware IOC endpoint and returns a normalized list of malware attributes per matched hash."
   region             = data.aws_region.current.name
 
