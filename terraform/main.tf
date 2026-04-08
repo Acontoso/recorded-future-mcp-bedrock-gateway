@@ -6,7 +6,7 @@ data "aws_region" "current" {}
 
 terraform {
   backend "s3" {
-    bucket = "security-terraform-state-weshealth"
-    key    = "statefiles/bedrock-gateway-recordedfuture.tfstate"
+    bucket = ""
+    key    = ""
   }
 }
